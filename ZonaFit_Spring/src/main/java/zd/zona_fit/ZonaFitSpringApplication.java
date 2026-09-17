@@ -12,9 +12,9 @@ import zd.zona_fit.services.IClienteServicio;
 import java.util.List;
 import java.util.Scanner;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class ZonaFitSpringApplication implements CommandLineRunner {
-    @Autowired
+  //  @Autowired
     private IClienteServicio clienteServicio;
     //esto es básicamente sustituir el método print por uno más adecuado para la aplicación
     private static final Logger LOGGER = LoggerFactory.getLogger(ZonaFitSpringApplication.class);
