@@ -24,14 +24,18 @@ public class Servicio implements IClienteServicio {
         return clienteRepositorio.findById(idCliente).orElse(null);
     }
 
-    @Override
-    public void saveCliente(Cliente cliente) {
-        clienteRepositorio.save(cliente);
-
-    }
 
     @Override
     public void deleteCliente(Cliente cliente) {
         clienteRepositorio.delete(cliente);
+    }
+
+
+    @Override
+    public void saveCliente(Cliente cliente) {
+        if (clienteRepositorio.existsByMembresia(cliente.getMembresia())) {
+            throw new RuntimeException("La membresia existe, por favor ingrese una nueva membresia.");
+        }
+        clienteRepositorio.save(cliente);
     }
 }
